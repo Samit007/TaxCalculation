@@ -2,6 +2,7 @@ package com.example.taxcalculation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,20 +25,32 @@ public class MainActivity extends AppCompatActivity {
         btncalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float amount=Float.parseFloat(mSalary.getText().toString());
-                Tax t = new Tax(amount);
-                float totalamt1=t.totalamt1();
-                float totalamt2=t.totalamt2();
-                float totalamt3=t.totalamt3();
-                yearlySalary=amount*12;
-                if (yearlySalary<=200000){
-                    result.setText(Float.toString(totalamt1));
+                if (!isEmpty()) {
+                    float amount = Float.parseFloat(mSalary.getText().toString());
+                    Tax t = new Tax(amount);
+                    float totalamt1 = t.totalamt1();
+                    float totalamt2 = t.totalamt2();
+                    float totalamt3 = t.totalamt3();
+                    yearlySalary = amount * 12;
+                    if (yearlySalary <= 200000) {
+                        result.setText(Float.toString(totalamt1));
+                    } else if (yearlySalary > 200000 && yearlySalary <= 350000) {
+                        result.setText(Float.toString(totalamt2));
+                    } else {
+                        result.setText(Float.toString(totalamt3));
+                    }
+
                 }
-                else if (yearlySalary>200000 && yearlySalary<=350000){
-                    result.setText(Float.toString(totalamt2));
-                }else
-                    result.setText(Float.toString(totalamt3));
             }
         });
+    }
+
+
+    public boolean isEmpty() {
+        if (TextUtils.isEmpty(mSalary.getText().toString())) {
+            mSalary.setError("Please enter monthly salary");
+            mSalary.requestFocus();
+            return true;
+        } else return false;
     }
 }
