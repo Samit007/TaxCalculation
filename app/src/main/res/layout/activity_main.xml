@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity_Samit">
 
     <TextView
         style="@style/myStyle"

@@ -1,9 +1,9 @@
 package com.example.taxcalculation;
 
-public class Tax {
+public class Tax_Samit {
 private float amount,firsttax,secondtax,totaltax,salary;
 
-    public Tax(float amount) {
+    public Tax_Samit(float amount) {
         this.amount = amount;
     }
 

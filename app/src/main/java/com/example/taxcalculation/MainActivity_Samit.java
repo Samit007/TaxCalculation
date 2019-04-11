@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity_Samit extends AppCompatActivity {
     private TextView result;
     private EditText mSalary;
     private Button btncalc;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!isEmpty()) {
                     float amount = Float.parseFloat(mSalary.getText().toString());
-                    Tax t = new Tax(amount);
+                    Tax_Samit t = new Tax_Samit(amount);
                     float totalamt1 = t.totalamt1();
                     float totalamt2 = t.totalamt2();
                     float totalamt3 = t.totalamt3();
